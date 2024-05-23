@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css"> <!-- Estilo padrão das páginas -->
+    <meta name="Descrição" content="formulário para preenchimento com algumas informações básicas relevantes">
+    <link rel="icon" type="image/png" href="./css/icon.png"> <!-- Icone da página -->
+    <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app-compat.js"></script> <!-- Biblioteca Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore-compat.js"></script> <!-- Biblioteca de envio de dados para o BD -->
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-auth-compat.js"></script> <!-- Biblioteca de autenticação Firebase -->
+    <script type="module" src="./js/firebase.js"></script> <!-- Script iniciando o Firebase -->
+    <script type="module" src="./js/formulario.js"></script> <!-- Script com as funções de envio do formulário -->
+
+    <title>Formulário</title>
+</head>
+
+<body>
+    <div class="form-container">
+        <h1 style="text-align: center;">Formulário</h1>
+        <form class="campo" id="form">
+            <label for="email" style="font-size:20">Qual o seu email?</label>
+            <input  type="email" id="email" required style="font-size:18">
+
+            <label for="genero" style="font-size:20">Qual é o seu gênero?</label>
+            <select id="genero" required style="font-size:18">
+                <option selected disabled ></option>
+                <option value="Masculino">Masculino</option>
+                <option value="Feminino">Feminino</option>
+                <option value="Preferiu não informar">Prefiro não informar</option>
+            </select>
+
+            <label for="idade" style="font-size:20">Qual a sua idade?</label>
+            <input  type="number" id="idade" required style="font-size:18">
+
+            <label for="formacao" style="font-size:20">Formação acadêmica (última concluída):</label>
+            <select id="formacao" required style="font-size:18">
+                <option selected disabled > </option>
+                <option value="Ensino Médio">Ensino Médio</option>
+                <option value="Graduação">Graduação</option>
+                <option value="Especialização">Especialização</option>
+                <option value="Mestrado">Mestrado</option>
+                <option value="Doutorado">Doutorado</option>
+            </select>
+
+            <label for="nacionalidade" style="font-size:20">Qual a sua nacionalidade?</label>
+            <input type="text" id="nacionalidade" required style="font-size:18">
+
+            <label for="eprofessor" style="font-size:20">Você é professor(a)?</label>
+            <select id="eprofessor" required style="font-size:18">
+                <option selected disabled > </option>
+                <option value="Sim">Sim</option>
+                <option value="Não">Não</option>
+            </select>
+
+            <label for="atuacao" style="font-size:20">Qual a sua formação? (Deixe em branco caso não possua)</label>
+                <input type="text" id="atuacao" style="font-size:18">
+
+            <label for="braille" style="font-size:20">Qual o seu nível de conhecimento em Braille?</label>
+            <select id="braille" required style="font-size:18" >
+                <option selected disabled > </option>
+                <option value="Nenhum">Nenhum</option>
+                <option value="Pouco">Pouco</option>
+                <option value="Básico">Básico</option>
+                <option value="Intermediário">Intermediário</option>
+                <option value="Avançado">Avançado</option>
+            </select>
+
+            <button class="form-btn2" type="submit">Enviar</button>
+        </form>
+    </div>
+
+</body>
+
+<script src="./js/login.js"> </script> <!-- Script com as funções de Login -->
+
+</html>

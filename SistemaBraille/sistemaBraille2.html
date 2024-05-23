@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Página explicativa do conteudo Braille">
+    <link rel="stylesheet" href="../css/index.css"> <!-- Estilo padrão das páginas -->
+    <link id="css" href="../../css/braille-big.css" rel="stylesheet"> <!-- faz parte da biblioteca Braille -->
+    <script src="../../js/braille-tools.js"></script> <!-- faz parte da biblioteca Braille -->
+    <link rel="icon" type="image/png" href="../css/icon.png"> <!-- Icone da página -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> 
+    <title>Braille</title>
+</head>
+
+<body>
+
+    <nav class="menu-lateral">
+
+        <div class="btn-expandir" > 
+            
+            <i class="icon"></i>
+            
+        </div>
+
+        <ul class="lateral">
+            <li class="item-menu" id="user-div">
+                <a>
+                    <span class="icon"><img src="../css/icon.png" style="padding-left: 5px;" ></span>
+                    <h4 class="txt-link"></h4>
+                </a>
+            </li>
+
+
+            <li class="item-menu">
+                <a href="../SistemaBraille/sistemaBraille.html">
+                    <span class="icon"><i class="bi bi-book-fill"></i></span>
+                    <span class="txt-link">Braille</span>
+                </a>
+            </li>
+            
+            
+            <li class="item-menu">
+                <a href="../Exercicios.html">
+                    <span class="icon"><i class="bi bi-list-ol"></i></span>
+                    <span class="txt-link">Exercícios</span>
+                </a>
+            </li>  
+            <li class="item-menu">
+                <a href="../Traducao/Traducao.html">
+                    <span class="icon"><i class="bi bi-translate"></i></span>
+                    <span class="txt-link">Tradução</span>
+                </a>
+            </li>
+            <li class="item-menu">
+                <a href="../Estudar/Estudar.html">
+                    <span class="icon"><i class="bi bi-easel-fill"></i></span>
+                    <span class="txt-link">Estudar</span>
+                </a>
+            </li>
+            <li class="item-menu">
+                <a href="../feedback.html">
+                    <span class="icon"><i class="bi bi-star-fill"></i></span>
+                    <span class="txt-link">Feedback</span>
+                </a>
+            </li>
+            <li class="item-menu">
+                <a onclick="logout()" href="../../index.html">
+                    <span class="icon"><i class="bi bi-box-arrow-left"></i>
+                    </span>
+                    <span class="txt-link">Sair</span>
+                </a>
+            </li>
+        </ul>
+       
+    </nav>
+
+    <div class="container">
+
+        <div style="margin-bottom: 20px;" > <h2>Sistema Braille</h2> </div>
+
+        <p style="text-align: left; margin-bottom: 15px;">O Braille possui formação de letras e números, de forma que a combinação única dos pontos representam caracteres diferentes, sendo assim, possui as seguintes regras de disposição dos sinais: </p>   
+       
+        <ul style="margin-bottom: 30px; text-align: left;" > 
+            <li class="txt-braille">
+                A 1ª série chamada de série superior, faz o uso dos 4 pontos superiores da cela, 1245, que forma as letras de  A até J;
+            <img src="../css/1-SerieSuperior.png" alt="Sinais Básicos do Sistema Braille">
+            </li>
+
+            <li class="txt-braille">  
+                A 2ª série conta com a adição do ponto 3 a cada um dos sinais da primeira série, então, é feito o uso da mesma sequência de pontos das letras citadas anteriormente, porém, adicionando o ponto 3 para representar as 10 próximas letras de K até L;
+            <img src="../css/2-Serie.png" alt="Sinais Básicos do Sistema Braille">
+            </li>
+
+            <li class="txt-braille">
+            A 3ª série,  complementando a 1ª série os pontos 3 e 6 geram as letras de U até Z , entretanto, a letra W não existia na Língua Francesa na época, foi adicionada posteriormente;
+            <img src="../css/3-serie.png" alt="Sinais Básicos do Sistema Braille">
+            </li>
+            
+            <li class="txt-braille">
+             O sistema utiliza a noção de caracteres de escape, em que os códigos mudam de sentido quando precedidos por outros, como é o caso dos números de 1, 2, ..., 8, 9 e 0 que utilizam a mesma sequência de pontos da 1ª série, mas associado com o símbolo de numeral em Braille  , como mostrado abaixo.
+             <img src="../css/Numeral.png" alt="Sinais Básicos do Sistema Braille">
+            </li>
+            
+        </ul>
+
+        <a class="form-btn2" href="./sistemaBraille.html" >Voltar</a>
+        <a href="./sistemaBraille3.html" class="form-btn2" >Avançar</a>
+       
+    </div>
+
+
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app-compat.js"></script> <!-- Biblioteca Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-auth-compat.js"></script><!-- Biblioteca de autenticação Firebase -->
+<script src="../js/firebase.js"> </script> <!-- Script iniciando o Firebase -->
+<script src="../js/login.js"> </script> <!-- Script com as funções de Login -->
+
+</html>

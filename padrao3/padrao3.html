@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Descrição" content="Página ilustrando o padrão 3 ">
+    <link rel="stylesheet" href="../css/index.css"> <!-- Estilo padrão das páginas -->
+    <link id="css" href="../css/braille-big.css" rel="stylesheet"> <!-- faz parte da biblioteca Braille -->
+    <script src="../js/braille-tools.js"></script> <!-- faz parte da biblioteca Braille -->
+    <link rel="icon" type="image/png" href="../css/icon.png"> <!-- Icone da página -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> 
+
+    <title>Padrão 3</title>
+</head>
+
+<body>
+
+    <nav class="menu-lateral">
+
+        <div class="btn-expandir" > 
+            
+            <i class="icon"></i>
+            
+        </div>
+
+        <ul class="lateral">
+            <li class="item-menu" id="user-div">
+                <a>
+                    <span class="icon"><img src="../css/icon.png" style="padding-left: 5px;" ></span>
+                    <h4 class="txt-link"></h4>
+                </a>
+            </li>
+
+
+            <li class="item-menu">
+                <a href="../SistemaBraille/sistemaBraille.html">
+                    <span class="icon"><i class="bi bi-book-fill"></i></span>
+                    <span class="txt-link">Braille</span>
+                </a>
+            </li>
+            
+            
+            <li class="item-menu">
+                <a href="../Exercicios.html">
+                    <span class="icon"><i class="bi bi-list-ol"></i></span>
+                    <span class="txt-link">Exercícios</span>
+                </a>
+            </li>  
+            <li class="item-menu">
+                <a href="../Traducao/Traducao.html">
+                    <span class="icon"><i class="bi bi-translate"></i></span>
+                    <span class="txt-link">Tradução</span>
+                </a>
+            </li>
+            <li class="item-menu">
+                <a href="../Estudar/Estudar.html">
+                    <span class="icon"><i class="bi bi-easel-fill"></i></span>
+                    <span class="txt-link">Estudar</span>
+                </a>
+            </li>
+            <li class="item-menu">
+                <a href="../feedback.html">
+                    <span class="icon"><i class="bi bi-star-fill"></i></span>
+                    <span class="txt-link">Feedback</span>
+                </a>
+            </li>
+            <li class="item-menu">
+                <a onclick="logout()" href="../../index.html">
+                    <span class="icon"><i class="bi bi-box-arrow-left"></i>
+                    </span>
+                    <span class="txt-link">Sair</span>
+                </a>
+            </li>
+        </ul>
+       
+    </nav>
+
+    <div class="container">
+
+        <div > <h1>Padrão 3</h1> </div>
+        <div class="container2">
+            <div class="br br-a "></div>
+            <h2>a</h2>
+        </div>
+        <div class="container2">
+ 
+            <div class="br br-b "></div>
+            <h2>b</h2>
+        </div>
+
+        <div class="container2">
+            <div class="br br-k "></div>
+            <h2>k</h2>
+        </div>
+        <div class="container2">
+ 
+            <div class="br br-l "></div>
+            <h2>l</h2>
+        </div>
+        <div class="container2">
+            
+            <h2 style="visibility: hidden;">-</h2>
+        </div>
+        
+        <div class="container2">
+            <div class="br br-c "></div>
+            <h2>c</h2>
+        </div>
+        <div class="container2">
+ 
+            <div class="br br-g "></div>
+            <h2>g</h2>
+        </div>
+
+        <div class="container2">
+ 
+            <div class="br br-x "></div>
+            <h2>x</h2>
+        </div>
+
+        <div class="container2">
+            
+            <h2 style="visibility: hidden;">-</h2>
+        </div>
+        
+        <div class="container2">
+            <div class="br br-o "></div>
+            <h2>o</h2>
+        </div>
+        <div class="container2">
+ 
+            <div class="br br-s "></div>
+            <h2>s</h2>
+        </div>
+
+        <div class="container2">
+ 
+            <div class="br br-t "></div>
+            <h2>t</h2>
+        </div>
+
+        <div class="container2">
+ 
+            <div class="br br-q "></div>
+            <h2>q</h2>
+        </div>
+
+        <p>Complementaridade, seguindo um padrão sequencial de preenchimento da célula Braille, cada caractere do conjunto complementa e ajuda a lembrar do próximo.</p>
+  
+        <a class="form-btn2" href="./exercicio1reformulado.html" >Exercicio</a> 
+    </div>
+
+
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app-compat.js"></script> <!-- Biblioteca Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-auth-compat.js"></script><!-- Biblioteca de autenticação Firebase -->
+<script src="../../js/firebase.js"> </script> <!-- Script iniciando o Firebase -->
+<script src="../../js/login.js"> </script> <!-- Script com as funções de Login -->
+
+</html>
