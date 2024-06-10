@@ -40,8 +40,8 @@ firebase.auth().onAuthStateChanged((user) => {
         userDiv.style.display = 'block';
         userDiv.querySelector('h4').textContent = ` ${user.email}`;
     } else {
-      //if (!window.location.pathname.includes("index.html")) {
-       //    window.location.replace("../index.html");
+      if (!window.location.pathname.includes("index.html")) {
+           window.location.replace("../index.html");
         }
     }
 });

@@ -6,7 +6,7 @@ var palavraAtual;
         var contIncorretas = 0;
 
         function enviarDadosParaFirestore(email, corretas, incorretas) {
-            db.collection(firebase.auth().currentUser.email).doc('Respostas Palavras').set({
+            db.collection(firebase.auth().currentUser.email).doc('Resposta Palavras Medio').set({
                 respostasCorretas: corretas,
                 respostasIncorretas: incorretas
             })

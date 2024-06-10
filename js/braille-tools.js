@@ -16,14 +16,14 @@ var br = {
                 isFirstChar = false; // Não é mais o primeiro caractere da palavra
             } else if ((myChar >= "A") && (myChar <= "Z")) { // A até Z
                 if (isFirstChar) {
-                    txt += BrailleChar("dec");
+                    txt += BrailleChar("dec","Maiusculo");
                     isFirstChar = false; // Não é mais o primeiro caractere da palavra
                 }
                 txt += BrailleChar(myChar, myChar);
                 prevCharNum = false;
             } else if ((myChar > "0") && (myChar <= "9")) {
                 if (!prevCharNum) {
-                    txt += BrailleChar("num", "Number");
+                    txt += BrailleChar("num", "Numero");
                 } 
                 txt += BrailleChar(String.fromCharCode(myChar.charCodeAt(0) + 48), myChar); 
                 prevCharNum = true;
@@ -50,7 +50,7 @@ var br = {
                         isFirstChar = true; // Próximo caractere é o primeiro de uma nova palavra
                         break;
                     case ".":
-                        txt+=BrailleChar("qs", "'"); //apostofre e ponto são iguais
+                        txt+=BrailleChar("ponto", "."); //apostofre e ponto são iguais
                         prevCharNum = false;
                         break;
                     case "/":
@@ -61,8 +61,12 @@ var br = {
                         txt+=BrailleChar("col", "%")+BrailleChar("p", "");
                         prevCharNum = false;
                         break;
+                    case "#":
+                        txt+=BrailleChar("num", "Number")+BrailleChar("k", "#");
+                        prevCharNum = false;
+                        break;
                     case "'":
-                        txt+=BrailleChar("ponto", "."); //apostofre e ponto são iguais
+                        txt+=BrailleChar("ponto", "'"); //apostofre e ponto são iguais
                         prevCharNum = false;
                         break;
                     case ",":
@@ -83,21 +87,21 @@ var br = {
                         prevCharNum = false;
                         break;
                         case "-":
-                        txt+=BrailleChar("hyph", "-"); //Simbolo de menos
+                        txt+=BrailleChar("menos", "-"); //Simbolo de menos
                         prevCharNum = false;
                         break;
                     case "í":
-                        txt+=BrailleChar("sla"); 
+                        txt+=BrailleChar("í","í"); 
                         prevCharNum = false;
                         break;
                     case "!":
                         txt+=BrailleChar("ex", "!"); 
                         prevCharNum = false;
                         break;
-                        case "+":
-                            txt+=BrailleChar("ex", "!"); 
-                            prevCharNum = false;
-                            break;
+                    case "+":
+                        txt+=BrailleChar("ex", "+"); 
+                        prevCharNum = false;
+                        break;
                     case "'": 
                         if (inQuote)
                             txt+=BrailleChar("qc", "Close Quote"); 
@@ -121,47 +125,47 @@ var br = {
                         txt+=BrailleChar("par", "]")+BrailleChar("qs", ""); 
                         break;
                     case "ç":
-                        txt+=BrailleChar("ç");
+                        txt+=BrailleChar("ç","ç");
                         prevCharNum = false;
                         break;
                     case "é":
-                        txt+=BrailleChar("é");
+                        txt+=BrailleChar("é","é");
                         prevCharNum = false;
                         break;
                     case "á":
-                        txt+=BrailleChar("á");
+                        txt+=BrailleChar("á","á");
                         prevCharNum = false;
                         break;    
                     case "ó":
-                        txt+=BrailleChar("ó");
+                        txt+=BrailleChar("ó","ó");
                         prevCharNum = false;
                         break;   
                     case "ú":
-                        txt+=BrailleChar("ú");
+                        txt+=BrailleChar("ú","ú");
                         prevCharNum = false;
                         break;   
                     case "à":
-                        txt+=BrailleChar("à");
+                        txt+=BrailleChar("à","à");
                         prevCharNum = false;
                         break;      
                     case "â":
-                        txt+=BrailleChar("â");
+                        txt+=BrailleChar("â","â");
                         prevCharNum = false;
                         break;
                     case "ê":
-                        txt+=BrailleChar("ê");
+                        txt+=BrailleChar("ê","ê");
                         prevCharNum = false;
                         break;  
                     case "ô":
-                        txt+=BrailleChar("ô");
+                        txt+=BrailleChar("ô","ô");
                         prevCharNum = false;
                         break;    
                     case "ã":
-                        txt+=BrailleChar("ã");
+                        txt+=BrailleChar("ã","ã");
                         prevCharNum = false;
                         break;
                     case "õ":
-                        txt+=BrailleChar("õ");
+                        txt+=BrailleChar("õ","õ");
                         prevCharNum = false;
                         break; 
                     case "^":
@@ -171,7 +175,11 @@ var br = {
                     case "?":
                         txt+=BrailleChar("interrogacao","?");
                         prevCharNum = false;
-                        break;    
+                        break;
+                    case "~":
+                        txt+=BrailleChar("til","~");
+                        prevCharNum = false;
+                        break;        
                     case "$":
                         txt+=BrailleChar("cifrao","$");
                         prevCharNum = false;
