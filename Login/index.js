@@ -35,6 +35,12 @@ function getErrorMessage(error) {
     if (error.code == "auth/wrong-password") {
         return "Senha inválida";
     }
+    if (error.code == "auth/missing-email") {
+        return "Digite seu email";
+    }
+
+
+    
     return error.message;
 }
 
