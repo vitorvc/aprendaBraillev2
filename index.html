@@ -1,31 +1,53 @@
-<!DOCTYPE html>
-<html lang="pt">
+<!doctype html>
+<html lang="pt"></html>
+<html>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Descrição" content="Página Inicial ">
-    <link rel="stylesheet" href="./css/index.css" alt="Ícone da página"> <!-- Estilo padrão das páginas -->
+    <meta name="Descrição" content="Página de Login ">
     <link rel="icon" type="image/png" href="./css/icon.png"> <!-- Icone da página -->
-    
-    <title>Introdução ao Braille</title>
-    
+    <title>Login</title>
 </head>
 
-<body>
+<body class="centralize">
     <div class="container">
-        <h1>Aprenda Braille</h1>
-        <p>Aprenda Braille é uma plataforma para desenvolver a leitura e escrita em braille através de exercicios que auxiliam a memorizar de forma rápida os caracteres da linguagem.</p>
-        <p>Por favor preencha o formulário!</p>
-        <a onclick="login()" class="form-btn" >Formulário</a>
-        <p style="padding-top: 10px;">Já preencheu o formulário anteriormente?</p>
-        <a onclick="login2()" class="login-btn" >Login com google</a>
-    </div> 
+    <form>
+        <div class="form-field">
+            <h2 style="text-align: center;">AprendaBraille</h2>
+            <div><label>Email</label></div>
+            <input type="email" name="email" id="email" placeholder="seu@email.com" onchange="onChangeEmail()"/>
+            <div class="error" id="email-required-error">Email é obrigatório</div>
+            <div class="error" id="email-invalid-error">Email é inválido</div>
+        </div>
+        <div class="form-field">
+            <div><label>Senha</label></div>
+            <input type="password" name="password" id="password" placeholder="Senha" onchange="onChangePassword()"/>
+            <div class="error" id="password-required-error">Senha é obrigatória</div>
+        </div>
+        <div>
+            <button type="button" class="clear" id="recover-password-button" onclick="recoverPassword()" >Recuperar senha</button>
+        </div>
+        <div>
+            <button type="button" class="form-btn2" id="login-button"  onclick="login()">Entrar</button>
+        </div>
+        <div>
+            <button type="button" class="form-btn2" onclick="register()">Registrar</button>
+        </div>
+        
+    </form>
+    <button onclick="login2()" class="login-btn" >Login com google</button>
+</div>
 </body>
 
-
+<link rel="stylesheet" href="./Login/index.css">
+<link rel="stylesheet" href="./Login/global.css">
 <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script> <!-- Biblioteca Firebase -->
 <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-auth-compat.js"></script><!-- Biblioteca de autenticação Firebase -->
 <script src="./js/firebase.js"> </script> <!-- Script iniciando o Firebase -->
 <script src="./js/login.js"> </script> <!-- Script com as funções de Login -->
+<script src="./Login/index.js"></script>
+<script src="./Login/validations.js"></script>
+<script src="./Login/loading.js"></script>
+
 </html>
