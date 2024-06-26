@@ -38,6 +38,9 @@ function getErrorMessage(error) {
     if (error.code == "auth/missing-email") {
         return "Digite seu email";
     }
+    if (error.code == "auth/invalid-email") {
+        return "Email inválido";
+    }
 
 
     
