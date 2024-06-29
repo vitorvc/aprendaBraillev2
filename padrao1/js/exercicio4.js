@@ -17,7 +17,7 @@ function verificar() {
         enviarDadosParaFirestore(firebase.auth().currentUser.email, numeroTentativas)
             .then(() => {
                 alert('Parabéns! Respostas corretas.');
-                window.location.href = "../padrao2/padrao2.html";
+                window.location.href = "./exercicio5.html";
             })
             .catch(error => console.error("Erro ao enviar dados para o Firestore: ", error));
     } else {

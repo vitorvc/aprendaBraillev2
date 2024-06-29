@@ -6,7 +6,7 @@ var contCorretas = 0;
 var contIncorretas = 0;
 
 function enviarDadosParaFirestore(email, corretas, incorretas) {
-    db.collection(firebase.auth().currentUser.email).doc('Resposta Milhão').set({
+    db.collection(firebase.auth().currentUser.email).doc('Respostas Centena').set({
         respostasCorretas: corretas,
         respostasIncorretas: incorretas
     })
@@ -19,7 +19,7 @@ function enviarDadosParaFirestore(email, corretas, incorretas) {
 }
 
 function recuperarDadosDoFirestore(email) {
-    db.collection(email).doc('Resposta Milhão').get()
+    db.collection(email).doc('Respostas Centena').get()
     .then(function(doc) {
         if (doc.exists) {
             contCorretas = doc.data().respostasCorretas || 0;
@@ -35,8 +35,8 @@ function recuperarDadosDoFirestore(email) {
 }
         
 function gerardezena() {
-    var dezena = Math.floor(Math.random() * 9000000) + 1000000;
-    var dezenaFormatada = dezena.toString().padStart(2, '0');
+    var dezena = Math.floor(Math.random() * 1000);
+    var dezenaFormatada = dezena.toString().padStart(3, '0');
     dezenaAtual = dezenaFormatada;
     return dezenaFormatada;
 }
@@ -44,21 +44,21 @@ function gerardezena() {
 function exibirResposta() {
     // Verifica se a resposta já foi exibida
     if (!respostaExibida) {
-       var respostaContainer = document.getElementById("respostaContainer");
+        var respostaContainer = document.getElementById("respostaContainer");
         // Cria um novo elemento para a resposta
         var respostaElement = document.createElement("p");
         // Define o texto da resposta como o retorno da função gerarLetra()
         respostaElement.textContent = dezenaAtual;
         // Adiciona o elemento da resposta ao container
         respostaContainer.appendChild(respostaElement);
-
+        
         respostaExibida = true; // Define que a resposta foi exibida
     }
 }
 
 function atualizarBraille() {
     document.getElementById("brailleConteudo").innerHTML = br.braille(gerardezena());
-}      
+} 
 
 function atualizarContadores() {
     document.getElementById("contCorretas").textContent = contCorretas;
@@ -68,7 +68,7 @@ function atualizarContadores() {
 function verificar() {
     var resposta = document.getElementById("entrada").value;
     var emailUsuario = firebase.auth().currentUser.email; 
-    document.getElementById("entrada").value = "";
+
     if (resposta === dezenaAtual) {
         document.getElementById("brailleConteudo").innerHTML = "";
         dezenaAtual = "";
@@ -82,9 +82,11 @@ function verificar() {
         alert("Tente novamente.");
            
     }
-    enviarDadosParaFirestore(emailUsuario, contCorretas, contIncorretas);
+
     atualizarContadores();
-}
+    enviarDadosParaFirestore(emailUsuario, contCorretas, contIncorretas);
+    document.getElementById("entrada").value = "";
+}    
 
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
@@ -94,7 +96,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         console.log("Nenhum usuário autenticado.");
     }
 });
-        
+
 atualizarBraille();
 
 function redirecionarPagina() {
@@ -102,8 +104,6 @@ function redirecionarPagina() {
     var opcaoSelecionada = select.value;
     if (opcaoSelecionada === "Dezena") {
         window.location.href = "./Numerosdezena.html";
-    } else if (opcaoSelecionada === "Centena") {
-        window.location.href = "./Numeroscentena.html";
     } else if (opcaoSelecionada === "Milhar") {
         window.location.href = "./Numerosmilhar.html";
     } else if (opcaoSelecionada === "Milhão") {

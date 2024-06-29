@@ -2,8 +2,8 @@ const db = firebase.firestore();
 firebase.initializeApp(firebaseConfig);
 
 var palavraAtual; 
-        var contCorretas = 0;
-        var contIncorretas = 0;
+var contCorretas = 0;
+var contIncorretas = 0;
 
         function enviarDadosParaFirestore(email, corretas, incorretas) {
             db.collection(firebase.auth().currentUser.email).doc('Respostas Expressões').set({
@@ -15,6 +15,22 @@ var palavraAtual;
             })
             .catch(function(error) {
                 console.error("Erro ao enviar dados para o Firestore: ", error);
+            });
+        }
+
+        function recuperarDadosDoFirestore(email) {
+            db.collection(email).doc('Respostas Expressões').get()
+            .then(function(doc) {
+                if (doc.exists) {
+                    contCorretas = doc.data().respostasCorretas || 0;
+                    contIncorretas = doc.data().respostasIncorretas || 0;
+                    atualizarContadores();
+                } else {
+                    console.log("Nenhum dado encontrado!");
+                }
+            })
+            .catch(function(error) {
+                console.error("Erro ao recuperar dados do Firestore: ", error);
             });
         }
         
@@ -36,26 +52,29 @@ var palavraAtual;
 
         function verificar() {
     var resposta = document.getElementById("entrada").value;
-    if (resposta === palavraAtual) {//
-        contCorretas++;
-        atualizarContadores();
-        atualizarBraille(); 
-        alert("Correto!");
+    var emailUsuario = firebase.auth().currentUser.email;
 
-        var emailUsuario =   firebase.auth().currentUser.email; 
-        document.getElementById("entrada").value = "";
-        enviarDadosParaFirestore(emailUsuario, contCorretas, contIncorretas);
+    if (resposta === palavraAtual) {
+        contCorretas++;
+        alert("Correto!");
+        atualizarBraille(); 
     } else {
         contIncorretas++;
-        atualizarContadores();
-        var emailUsuario =   firebase.auth().currentUser.email; 
-        enviarDadosParaFirestore(emailUsuario, contCorretas, contIncorretas);
         alert("Tente novamente.");
     }
-    document.getElementById("entrada").value = "";
 
+    atualizarContadores();
+    enviarDadosParaFirestore(emailUsuario, contCorretas, contIncorretas);
+    document.getElementById("entrada").value = "";
 }
 
-        
-        atualizarBraille();
-        atualizarContadores(); 
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+        var emailUsuario = user.email;
+        recuperarDadosDoFirestore(emailUsuario);
+    } else {
+        console.log("Nenhum usuário autenticado.");
+    }
+});
+
+atualizarBraille();
