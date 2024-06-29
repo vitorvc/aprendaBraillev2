@@ -14,7 +14,7 @@ function login2(){
     const provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider)
         .then((result) => {
-            window.location.href = "./SistemaBraille/sistemaBraille.html";
+            window.location.href = "./menuBraille.html";
             const user = result.user;
         })
         .catch((error) => {
